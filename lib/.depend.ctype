@@ -1,0 +1,1 @@
+ctype.o: ctype.c /home/james/u-boot/u-boot-2014.01/include/linux/ctype.h

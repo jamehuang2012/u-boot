@@ -1,0 +1,12 @@
+crt0.o: crt0.S /home/james/u-boot/u-boot-2014.01/include/config.h \
+  /home/james/u-boot/u-boot-2014.01/include/config_cmd_defaults.h \
+  /home/james/u-boot/u-boot-2014.01/include/config_defaults.h \
+  /home/james/u-boot/u-boot-2014.01/include/configs/smdk2440.h \
+  /home/james/u-boot/u-boot-2014.01/include/config_cmd_default.h \
+  /home/james/u-boot/u-boot-2014.01/arch/arm/include/asm/config.h \
+  /home/james/u-boot/u-boot-2014.01/include/config_fallbacks.h \
+  /home/james/u-boot/u-boot-2014.01/include/config_uncmd_spl.h \
+  /home/james/u-boot/u-boot-2014.01/include/asm-offsets.h \
+  /home/james/u-boot/u-boot-2014.01/include/generated/generic-asm-offsets.h \
+  /home/james/u-boot/u-boot-2014.01/include/linux/linkage.h \
+  /home/james/u-boot/u-boot-2014.01/arch/arm/include/asm/linkage.h
