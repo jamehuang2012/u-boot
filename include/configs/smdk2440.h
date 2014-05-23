@@ -36,14 +36,10 @@
 /*
  * Hardware drivers
  */
-#if 0
-#define CONFIG_CS8900		/* we have a CS8900 on-board */
-#define CONFIG_CS8900_BASE	0x19000300
-#define CONFIG_CS8900_BUS16	/* the Linux driver does accesses as shorts */
-#else
-//DM9000
-
-#endif 
+#define CONFIG_DRIVER_DM9000
+#define CONFIG_DM9000_BASE				0x20000000
+#define DM9000_IO		CONFIG_DM9000_BASE
+#define DM9000_DATA		(CONFIG_DM9000_BASE+4)
 
 /*
  * select serial console configuration
@@ -101,8 +97,9 @@
 #define CONFIG_ZERO_BOOTDELAY_CHECK
 
 #define CONFIG_NETMASK		255.255.255.0
-#define CONFIG_IPADDR		10.0.0.110
-#define CONFIG_SERVERIP		10.0.0.1
+#define CONFIG_IPADDR		192.168.2.160
+#define CONFIG_SERVERIP		192.168.2.22	
+#define CONFIG_ETHADDR  00:E0:0C:00:01:FD
 
 #if defined(CONFIG_CMD_KGDB)
 #define CONFIG_KGDB_BAUDRATE	115200	/* speed to run kgdb serial port */
@@ -157,7 +154,7 @@
 #define CONFIG_SYS_FLASH_BANKS_LIST     { CONFIG_SYS_FLASH_BASE }
 #define CONFIG_SYS_MAX_FLASH_SECT	(35)
 
-#define CONFIG_ENV_ADDR			(CONFIG_SYS_FLASH_BASE + 0x070000)
+#define CONFIG_ENV_ADDR			(CONFIG_SYS_FLASH_BASE + 0x080000)
 #define CONFIG_ENV_IS_IN_FLASH
 #define CONFIG_ENV_SIZE			0x10000
 /* allow to overwrite serial and ethaddr */
