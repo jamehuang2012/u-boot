@@ -33,6 +33,8 @@
 #define CONFIG_SETUP_MEMORY_TAGS
 #define CONFIG_INITRD_TAG
 
+//#define CONFIG_MACH_TYPE	MACH_TYPE_S3C2440
+
 /*
  * Hardware drivers
  */
@@ -50,12 +52,14 @@
 /************************************************************
  * USB support (currently only works with D-cache off)
  ************************************************************/
+#if 0
 #define CONFIG_USB_OHCI
 #define CONFIG_USB_OHCI_S3C24XX
 #define CONFIG_USB_KEYBOARD
 #define CONFIG_USB_STORAGE
 #define CONFIG_DOS_PARTITION
 
+#endif 
 /************************************************************
  * RTC
  ************************************************************/
@@ -82,10 +86,10 @@
 #define CONFIG_CMD_DATE
 #define CONFIG_CMD_DHCP
 #define CONFIG_CMD_ELF
-//#define CONFIG_CMD_NAND  
+#define CONFIG_CMD_NAND  
 #define CONFIG_CMD_PING
 #define CONFIG_CMD_REGINFO
-#define CONFIG_CMD_USB
+//#define CONFIG_CMD_USB
 
 #define CONFIG_SYS_HUSH_PARSER
 #define CONFIG_CMDLINE_EDITING
@@ -173,24 +177,35 @@
  * NAND configuration
  */
 #ifdef CONFIG_CMD_NAND
+
+#ifdef CONFIG_S3C2410
 #define CONFIG_NAND_S3C2410
 #define CONFIG_SYS_S3C2410_NAND_HWECC
+#else
+#define CONFIG_NAND_S3C2440
+#define CONFIG_SYS_S3C2440_NAND_HWECC
+#endif 
+
 #define CONFIG_SYS_MAX_NAND_DEVICE	1
 #define CONFIG_SYS_NAND_BASE		0x4E000000
 #endif
-
-/*
- * File system
+/*-----------------------------------------------------------------------
+ * Dynamic MTD partition support
  */
-#define CONFIG_CMD_FAT
-#define CONFIG_CMD_EXT2
-#define CONFIG_CMD_UBI
-#define CONFIG_CMD_UBIFS
 #define CONFIG_CMD_MTDPARTS
-#define CONFIG_MTD_DEVICE
+#define CONFIG_MTD_DEVICE               /* needed for mtdparts commands */
+#define CONFIG_FLASH_CFI_MTD
 #define CONFIG_MTD_PARTITIONS
-//#define CONFIG_YAFFS2
-#define CONFIG_RBTREE
+#define CONFIG_YAFFS2
+#define MTDIDS_DEFAULT          "nand0=MINI2440-0"
+#define MTDPARTS_DEFAULT        "mtdparts=MINI2440-0:512k(u-boot),"      \
+                                                "128k(params),"            \
+                                                "4m(kernel),"        \
+                                                "-(rootfs)"           \
+
+
+
+
 
 /* additions for new relocation code, must be added to all boards */
 #define CONFIG_SYS_SDRAM_BASE	PHYS_SDRAM_1
@@ -198,5 +213,7 @@
 				GENERATED_GBL_DATA_SIZE)
 
 #define CONFIG_BOARD_EARLY_INIT_F
+
+/* board info */
 
 #endif /* __CONFIG_H */
