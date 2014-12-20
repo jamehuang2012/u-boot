@@ -22,7 +22,7 @@
 #define CONFIG_S3C2440		/* specifically a SAMSUNG S3C2410 SoC */
 #define CONFIG_SMDK2410		/* on a SAMSUNG SMDK2410 Board */
 
-#define CONFIG_SYS_TEXT_BASE	0x0
+#define CONFIG_SYS_TEXT_BASE	0x31000000
 
 #define CONFIG_SYS_ARM_CACHE_WRITETHROUGH
 
@@ -34,6 +34,7 @@
 #define CONFIG_INITRD_TAG
 
 //#define CONFIG_MACH_TYPE	MACH_TYPE_S3C2440
+#define CONFIG_SKIP_LOWLEVEL_INIT
 
 /*
  * Hardware drivers
@@ -113,7 +114,7 @@
  * Miscellaneous configurable options
  */
 #define CONFIG_SYS_LONGHELP		/* undef to save memory */
-#define CONFIG_SYS_PROMPT	"BBT 2440# "
+#define CONFIG_SYS_PROMPT	"BBT 2440-01# "
 #define CONFIG_SYS_CBSIZE	256
 /* Print Buffer Size */
 #define CONFIG_SYS_PBSIZE	(CONFIG_SYS_CBSIZE + \

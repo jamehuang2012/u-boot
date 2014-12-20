@@ -1,3 +1,0 @@
-relocate.o: relocate.S \
-  /home/james/u-boot/u-boot-2014.01/include/linux/linkage.h \
-  /home/james/u-boot/u-boot-2014.01/arch/arm/include/asm/linkage.h

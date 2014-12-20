@@ -1,1 +1,0 @@
-crc8.o: crc8.c /home/james/u-boot/u-boot-2014.01/include/linux/crc8.h

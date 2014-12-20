@@ -159,6 +159,7 @@ ifeq ($(HOSTARCH),$(ARCH))
 CROSS_COMPILE ?=
 endif
 
+
 # load other configuration
 include $(TOPDIR)/config.mk
 

@@ -158,7 +158,7 @@ copyex:
 	/* FCLK:HCLK:PCLK = 1:2:4 */
 	/* default FCLK is 120 MHz ! */
         ldr r0, =0x4c000014
-        //      mov r1, #0x03;                    // FCLK:HCLK:PCLK=1:2:4, HDIVN=1,PDIVN=1
+        /*      mov r1, #0x03;*/                    // FCLK:HCLK:PCLK=1:2:4, HDIVN=1,PDIVN=1
         mov r1, #0x05;                    // FCLK:HCLK:PCLK=1:4:8
         str r1, [r0]
 
@@ -234,12 +234,14 @@ cpu_init_crit:
 	 * because memory timing is board-dependend, you will
 	 * find a lowlevel_init.S in your board directory.
 	 */
+
 	mov	ip, lr
 
-	bl	lowlevel_init
+	bl	lowlevel_init 
 
 	mov	lr, ip
 	mov	pc, lr
+
 #endif /* CONFIG_SKIP_LOWLEVEL_INIT */
 
 /*
